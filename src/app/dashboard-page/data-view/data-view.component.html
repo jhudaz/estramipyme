@@ -1,0 +1,18 @@
+<div class="row">
+  <ng-container *ngFor="let item of methods">
+    <div class="card mx-2 my-3">
+      @if(item.isLoading){
+        <p-progressSpinner ariaLabel="loading" />
+      }      
+      <img [src]="item.img" class="card-img-top" alt="..." (load)="item.isLoading=false">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{item.title}}</h5>
+        <!-- <p class="card-text">{{item.description}}</p> -->
+        <p-divider />
+        <button class="btn btn-primary" [routerLink]="handlePath(item.link)">Comenzar</button>
+      </div>
+    </div>
+  </ng-container>
+
+</div>

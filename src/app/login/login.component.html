@@ -1,0 +1,42 @@
+<!-- As a link -->
+<nav class="navbar bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">
+      <img id="logo" src="assets/images/logo.png" alt="logo EAFIT"/>
+    </a>
+  </div>
+</nav>
+<section id="login" class="container-fluid d-flex justify-content-center">
+  <div class="form">
+    <div class="d-flex justify-content-center">
+      <i id="user" class="fa-solid fa-user fa-2xl"></i>
+    </div>
+    <form>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+        />
+        <div id="emailHelp" class="form-text">
+          Nunca vamos a compartir tu correo con nadie mas
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Constraseña</label>
+        <input
+          type="password"
+          class="form-control"
+          id="exampleInputPassword1"
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+        <label class="form-check-label" for="exampleCheck1">Guardar contraseña</label>
+      </div>
+      <button type="submit" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="router-link-active" >Iniciar Sesión</button>
+    </form>
+  </div>
+</section>
