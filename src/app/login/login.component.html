@@ -11,14 +11,15 @@
     <div class="d-flex justify-content-center">
       <i id="user" class="fa-solid fa-user fa-2xl"></i>
     </div>
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Correo electronico</label>
         <input
-          type="email"
+          type="text"
           class="form-control"
           id="exampleInputEmail1"
           aria-describedby="emailHelp"
+          formControlName="username"
         />
         <div id="emailHelp" class="form-text">
           Nunca vamos a compartir tu correo con nadie mas
@@ -30,13 +31,14 @@
           type="password"
           class="form-control"
           id="exampleInputPassword1"
+          formControlName="password"
         />
       </div>
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" />
         <label class="form-check-label" for="exampleCheck1">Guardar contraseña</label>
       </div>
-      <button type="submit" class="btn btn-primary" routerLink="/dashboard" routerLinkActive="router-link-active" >Iniciar Sesión</button>
+      <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
   </div>
 </section>
