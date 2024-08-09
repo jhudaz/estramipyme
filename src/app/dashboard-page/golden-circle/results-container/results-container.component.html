@@ -17,17 +17,17 @@
   </p-breadcrumb>
   <div class="row mx-5 my-5">
     <!-- Add *ngIf with reloadKey to force reload -->
-    <div *ngIf="reloadKey" class="col-sm-12 col-md-5 col-lg-3">
+    <div *ngIf="reloadKey" class="col-sm-12 col-md-5">
       <p-card>
-        <p-chart type="radar" [data]="data" [options]="options" responsive="true"></p-chart>
+        <p-chart type="polarArea" [data]="data" [options]="options" responsive="true"></p-chart>
       </p-card>
     </div>
-    <div *ngIf="!reloadKey" class="col-sm-12 col-md-5 col-lg-3">
+    <div *ngIf="!reloadKey" class="col-sm-12 col-md-5">
       <p-card>
-        <p-chart type="radar" [data]="data" [options]="options" responsive="true"></p-chart>
+        <p-chart type="polarArea" [data]="data" [options]="options" responsive="true"></p-chart>
       </p-card>
     </div>
-    <div class="col-sm-12 col-md-7 col-lg-9">
+    <div class="col-sm-12 col-md-7">
         <p-accordion [activeIndex]="0">
           <p-accordionTab [header]="tab.title" *ngFor="let tab of sections">
             <p class="m-0">

@@ -8,14 +8,14 @@ import { QuestionsService } from '../../../core/services/questions.service';
   standalone: true,
   imports: [AdminNavbarComponent, ImportsModule],
   templateUrl: './results-container.component.html',
-  styleUrl: './results-container.component.scss'
+  styleUrl: './results-container.component.scss',
 })
 export class ResultsContainerComponent {
+  data: any = {};
+  options: any = {};
   reloadKey = true;
   sections: any[] = [];
   items: any[] = [];
-  data: any = {};
-  options: any = {};
   firstDataSetColor: string = 'blue';
   secondDataSetColor: string = '#4FB33B';
   firstDataSetLabel: string = 'Resultados esperados';
@@ -25,15 +25,14 @@ export class ResultsContainerComponent {
   tabs: any[] = [];
 
   constructor(private questionsService: QuestionsService) {}
-  
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.reloadKey = !this.reloadKey;
   }
 
   ngOnInit() {
-    this.sections = this.questionsService.getAllQuestions("goldenCircle");
-    this.generateValues();
+    this.sections = this.questionsService.getAllQuestions('goldenCircle');
 
     this.items = [
       { icon: 'pi pi-home', route: '/dashboard' },
@@ -42,27 +41,14 @@ export class ResultsContainerComponent {
     ];
 
     this.data = {
-      labels: [...this.sections.map((section) => section.title)],
       datasets: [
         {
-          label: this.firstDataSetLabel,
-          borderColor: this.firstDataSetColor,
-          pointBackgroundColor: this.firstDataSetColor,
-          pointBorderColor: this.firstDataSetColor,
-          pointHoverBackgroundColor: this.firstDataSetColor,
-          pointHoverBorderColor: this.firstDataSetColor,
-          data: this.firstDataSetValues,
-        },
-        {
-          label: this.secondDataSetLabel,
-          borderColor: this.secondDataSetColor,
-          pointBackgroundColor: this.secondDataSetColor,
-          pointBorderColor: this.secondDataSetColor,
-          pointHoverBackgroundColor: this.secondDataSetColor,
-          pointHoverBorderColor: this.secondDataSetColor,
-          data: this.secondDataSetValues,
+          data: [34,56,23],
+          backgroundColor: ['red', 'yellow', 'green'],
+          label: 'My dataset',
         },
       ],
+      labels: ["Por que", "Como", "Que"],
     };
 
     this.options = {
@@ -84,12 +70,5 @@ export class ResultsContainerComponent {
         },
       },
     };
-  }
-
-  generateValues() {
-    this.sections.forEach((section) => {
-      this.firstDataSetValues.push(Math.random() * 100);
-      this.secondDataSetValues.push(Math.random() * 100);
-    });
   }
 }

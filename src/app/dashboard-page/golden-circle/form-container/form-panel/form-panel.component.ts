@@ -1,15 +1,17 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { QuestionsService } from '../../../../core/services/questions.service';
 import { ImportsModule } from '../../../../imports';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'form-panel',
   standalone: true,
-  imports: [ImportsModule],
+  imports: [ImportsModule, FormsModule],
   templateUrl: './form-panel.component.html',
   styleUrl: './form-panel.component.scss'
 })
 export class FormPanelComponent implements OnInit {
+  val: number = 0;
   sections: any = [];
   section: any = {};
   sectionId:number = 1;

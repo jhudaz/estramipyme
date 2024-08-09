@@ -13,7 +13,6 @@ export class AuthService {
   constructor() { }
 
   login(user: any, password: any){
-    console.log("LLEGO AL SERVICIO: ", user, password);
     if(user === this.admin.user && password === this.admin.password){
       localStorage.setItem('user', JSON.stringify({ user: this.admin.user , password: this.admin.password}));
       return true;

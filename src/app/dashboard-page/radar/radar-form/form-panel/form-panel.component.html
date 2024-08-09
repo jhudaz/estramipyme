@@ -14,7 +14,9 @@
         <ng-container *ngFor="let question of section.questions">
           <div class="row my-3">
             <label [for]="question.id">{{question.question}}</label>
-            <p-inputNumber  [inputId]="question.id"/>
+            <div class="slider my-5">
+              <p-slider/>
+            </div>
           </div>
         </ng-container>
         <div class="row d-flex flex-row my-3">
