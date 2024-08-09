@@ -1,18 +1,40 @@
-<div class="row">
+<!-- <div id="data-view" class="row">
   <ng-container *ngFor="let item of methods">
-    <div class="card mx-2 my-3">
-      @if(item.isLoading){
-        <p-progressSpinner ariaLabel="loading" />
-      }      
-      <img [src]="item.img" class="card-img-top" alt="..." (load)="item.isLoading=false">
+    <p-panel [header]="item.title" class="panel col-sm-12 col-md-6">
       
-      <div class="card-body">
-        <h5 class="card-title">{{item.title}}</h5>
-        <!-- <p class="card-text">{{item.description}}</p> -->
-        <p-divider />
+      <div class="d-flex justify-content-center">
+        <img [src]="item.img" class="banner" alt="...">
+      </div>
+      <p-panel header="Descripcion" [toggleable]="true" [collapsed]="true">
+        <p>
+            Lorem ipsum dolor sit amet...
+        </p>
+      </p-panel>
+      <div class="my-2">
         <button class="btn btn-primary" [routerLink]="handlePath(item.link)">Comenzar</button>
       </div>
-    </div>
+    </p-panel>
   </ng-container>
-
+</div> -->
+<div id="data-view">
+  <p-dataView #dv [value]="methods">
+    <ng-template pTemplate="list" let-methods>
+      <div class="grid grid-nogutter">
+        <div class="row my-2" *ngFor="let item of methods; let first = first">
+          <div class="d-flex justify-content-center col-sm-12 col-md-2">
+            <img [src]="item.img" alt="">
+          </div>
+          <div class="col-sm-12 col-md-10 ">
+            <p-panel [header]="item.title" [toggleable]="true" [collapsed]="true">
+              <p>
+                {{ item.description }}
+              </p>
+            </p-panel>
+            <button class="btn btn-primary mt-4" [routerLink]="handlePath(item.link)"><i class="pi pi-pencil"></i> Comenzar</button>
+          </div>
+          <p-divider />
+        </div>
+      </div>
+    </ng-template>
+  </p-dataView>
 </div>

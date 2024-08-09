@@ -1,18 +1,27 @@
-.row {
-  .card {
-    width: 20em;
-    img {
-      width: 10em;
-      margin: 1em auto;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-    .card-body {
-      text-wrap: balance;
-    }
+// .row {
+//   .card {
+//     width: 20em;
+//     img {
+//       width: 10em;
+//       margin: 1em auto;
+//       &:hover {
+//         transform: scale(1.1);
+//       }
+//     }
+//     .card-body {
+//       text-wrap: balance;
+//     }
+//     &:hover {
+//       box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.2);
+//     }
+//   }
+// }
+#data-view {
+  img {
+    width: 10em;
+    margin: 1em auto;
     &:hover {
-      box-shadow: 0 0 1em 0.5em rgba(0, 0, 0, 0.2);
+      transform: scale(1.1);
     }
   }
 }

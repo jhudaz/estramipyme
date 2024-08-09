@@ -1,14 +1,19 @@
-<admin-navbar />
-<section class="container-fluid">
-  <div class="row">
-    <h5 class="py-3 border-bottom">Bienvenido &#64;<a href="">Jhon Doe</a></h5>
-    <p>
-      Selecciona tipo de diagnostico:
-    </p>
-  </div>
+<div id="dashboard">
+  <admin-navbar />
+  <section class="container-fluid">
+    <div class="row">
+      <h5 class="py-3 border-bottom">Bienvenido</h5>
+      <user-info />
+      <p>
+        Selecciona tipo de diagnostico:
+      </p>
+    </div>
+    
+    <div class="row my-3">
+      <data-view/>
+    </div>
   
-  <div class="row my-3">
-    <data-view/>
-  </div>
- 
-</section>
+  </section>
+
+  <!-- <admin-footer id="footer" class="bg-primary"/> -->
+</div>

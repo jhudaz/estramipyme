@@ -11,7 +11,7 @@ import { ImportsModule } from 'src/app/imports';
   templateUrl: './data-view.component.html',
   styleUrl: './data-view.component.scss'
 })
-export class DataViewComponent  implements OnInit{
+export class DataViewComponent {
   methods: any[] = [];
   path:string = "";
 
@@ -31,4 +31,10 @@ export class DataViewComponent  implements OnInit{
 
     return this.path;
   }
+
+  // constructor(private methodologiesService : MethodologiesService) {}
+
+  // ngOnInit() {
+  //   this.methods = this.methodologiesService.getAllMethodologies();
+  // }
 }
