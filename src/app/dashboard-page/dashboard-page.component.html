@@ -1,19 +1,17 @@
-<div id="dashboard">
+<div id="dashboard" class="dashboard-background">
   <admin-navbar />
   <section class="container-fluid">
+    <h5 class="py-3 border-bottom">Bienvenido</h5>
     <div class="row">
-      <h5 class="py-3 border-bottom">Bienvenido</h5>
-      <user-info />
-      <p>
-        Selecciona tipo de diagnostico:
-      </p>
+      <div class="col-sm-12 col-md-4">
+        <user-info />
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <data-view/>
+      </div>
     </div>
-    
-    <div class="row my-3">
-      <data-view/>
-    </div>
-  
-  </section>
 
-  <!-- <admin-footer id="footer" class="bg-primary"/> -->
+  </section>
+  <p-divider/>
+  <admin-footer/>
 </div>

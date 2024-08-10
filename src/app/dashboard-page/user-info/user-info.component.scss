@@ -1,5 +1,12 @@
 #profile {
-  .buttons {
+  .links {
     text-decoration: none;
+  }
+  .avatar-image {
+    background-image: url('/assets/images/world-map.svg');
+    background-size: cover;
+  }
+  .location {
+    position: absolute;
   }
 }

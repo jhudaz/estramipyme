@@ -13,7 +13,7 @@
       <form>
         <ng-container *ngFor="let question of section.questions">
           <div class="row my-3">
-            <label [for]="question.id">{{question.question}}</label>
+            <label class="text-format" [for]="question.id">{{question.question}}</label>
             <div class="slider my-5">
               <p-slider/>
             </div>

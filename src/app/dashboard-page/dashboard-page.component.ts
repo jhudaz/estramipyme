@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { DataViewComponent } from './data-view/data-view.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { ImportsModule } from '../imports';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,8 +13,9 @@ import { UserInfoComponent } from './user-info/user-info.component';
     AdminNavbarComponent,
     UserInfoComponent,
     DataViewComponent,
-    FooterComponent
-  ],
+    FooterComponent,
+    ImportsModule
+],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.scss'
 })

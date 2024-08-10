@@ -1,37 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 $primary:       #000066;
-$secondary:     #fff;
-$menuBg: rgb(35, 77, 3);
+$dashboardBg: #eff3f8;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 @import "primeicons/primeicons.css";
 
-// ::view-transition-old(root) {
-//   animation: exit 2s ease 0s 1 normal forwards;
-// }
-
-// ::view-transition-new(root) {
-//   animation: enter 1s ease 0s 1 normal forwards;
-// }
-
-// @keyframes enter {
-// 	0% {
-// 		transform: scaleY(0);
-// 	}
-
-// 	100% {
-// 		transform: scaleY(1);
-// 	}
-// }
-
-// @keyframes exit {
-// 	from {
-// 		opacity: 1;
-// 		transform: translateY(0);
-// 	}
-
-// 	to {
-// 		opacity: 0;
-// 		transform: translateY(50px);
-// 	}
-// }
+.dashboard-background {
+  background-color: $dashboardBg;
+}
+.text-format {
+  max-width: 75ch;
+  text-align: justify;
+}

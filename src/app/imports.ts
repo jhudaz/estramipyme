@@ -29,6 +29,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { PanelModule } from 'primeng/panel';
 import { SliderModule } from 'primeng/slider';
 import { CalendarModule } from 'primeng/calendar';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
   imports: [
@@ -61,7 +62,8 @@ import { CalendarModule } from 'primeng/calendar';
     PanelMenuModule,
     PanelModule,
     SliderModule,
-    CalendarModule
+    CalendarModule,
+    MenubarModule
   ],
   exports: [
     AnimateModule,
@@ -93,7 +95,8 @@ import { CalendarModule } from 'primeng/calendar';
     PanelMenuModule,
     PanelModule,
     SliderModule,
-    CalendarModule
+    CalendarModule,
+    MenubarModule
   ],
 })
 export class ImportsModule {}

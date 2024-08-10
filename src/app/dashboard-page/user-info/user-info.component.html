@@ -1,18 +1,21 @@
-<div id="profile" class="row my-3 d-flex flex-row">
-  <div class="col-sm-12 col-md-3">
+<div id="profile" class="row">
+  <div class="col-sm-12 col-md-12">
     <p-card header="Isaac Clark" subheader="Administrador">
       <ng-template pTemplate="header" class="d-flex justify-content-center">
-        <div class="d-flex justify-content-center py-3">
-          <img alt="Card" src="assets/images/robot-profile.svg" style="width: 30%; border-radius: 50%; border: 2px solid #000066;">
+        <div class="avatar-image d-flex justify-content-center py-3">
+          <img alt="Card" src="assets/images/robot-profile.svg" style="width: 30%; border-radius: 50%;">
         </div>
       </ng-template>
+      <div class="location">
+        <i class="pi pi-map-marker"></i> Ubicacion: <span class="font-bold">Medellín</span>
+      </div>
     </p-card>
   </div>
   
-  <div class="col-sm-12 col-md-3">
+  <div class="col-sm-12 col-md-12 mt-3">
     <p-panelMenu [model]="items" styleClass="w-full md:w-20rem">
       <ng-template pTemplate="item" let-item>
-        <a pRipple class="buttons d-flex align-items-center px-3 py-2 cursor-pointer">
+        <a pRipple class="links d-flex align-items-center px-3 py-2 cursor-pointer">
           <i [class]="item.icon + ' mx-2 '"></i>
           <span class="ml-2">
             {{ item.label }}
@@ -22,12 +25,4 @@
       </ng-template>
     </p-panelMenu>
   </div>
-  
-  <div class="col-sm-12 col-md-6">
-    <p-calendar 
-      [(ngModel)]="date" 
-      [inline]="true" 
-      [showWeek]="true" />
-  </div>
-  
 </div>
