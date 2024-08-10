@@ -2,11 +2,12 @@ import { Component, HostListener } from '@angular/core';
 import { AdminNavbarComponent } from '../../admin-navbar/admin-navbar.component';
 import { ImportsModule } from '../../../imports';
 import { QuestionsService } from '../../../core/services/questions.service';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'results-container',
   standalone: true,
-  imports: [AdminNavbarComponent, ImportsModule],
+  imports: [AdminNavbarComponent, ImportsModule, FooterComponent],
   templateUrl: './results-container.component.html',
   styleUrl: './results-container.component.scss',
 })
@@ -16,13 +17,9 @@ export class ResultsContainerComponent {
   reloadKey = true;
   sections: any[] = [];
   items: any[] = [];
-  firstDataSetColor: string = 'blue';
-  secondDataSetColor: string = '#4FB33B';
-  firstDataSetLabel: string = 'Resultados esperados';
-  secondDataSetLabel: string = 'Resultados obtenidos';
-  firstDataSetValues: any[] = [];
-  secondDataSetValues: any[] = [];
-  tabs: any[] = [];
+  whyColor: string = '#0d3b66';
+  howColor: string = 'orange';
+  whatColor: string = '#f4d35e';
 
   constructor(private questionsService: QuestionsService) {}
 
@@ -43,8 +40,12 @@ export class ResultsContainerComponent {
     this.data = {
       datasets: [
         {
-          data: [34,56,23],
-          backgroundColor: ['red', 'yellow', 'green'],
+          data: [24,16,14],
+          backgroundColor: [
+            this.whyColor, 
+            this.howColor, 
+            this.whatColor
+          ],
           label: 'My dataset',
         },
       ],

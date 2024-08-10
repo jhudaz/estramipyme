@@ -1,38 +1,27 @@
-<!-- <div id="data-view" class="row">
-  <ng-container *ngFor="let item of methods">
-    <p-panel [header]="item.title" class="panel col-sm-12 col-md-6">
-      
-      <div class="d-flex justify-content-center">
-        <img [src]="item.img" class="banner" alt="...">
-      </div>
-      <p-panel header="Descripcion" [toggleable]="true" [collapsed]="true">
-        <p>
-            Lorem ipsum dolor sit amet...
-        </p>
-      </p-panel>
-      <div class="my-2">
-        <button class="btn btn-primary" [routerLink]="handlePath(item.link)">Comenzar</button>
-      </div>
-    </p-panel>
-  </ng-container>
-</div> -->
 <div id="data-view">
   <p-dataView #dv [value]="methods">
     <ng-template pTemplate="list" let-methods>
       <div class="grid grid-nogutter">
-        <div class="row my-2" *ngFor="let item of methods; let first = first">
-          <div class="d-flex justify-content-center col-sm-12 col-md-2">
-            <img [src]="item.img" alt="">
-          </div>
-          <div class="col-sm-12 col-md-10 ">
-            <p-panel [header]="item.title" [toggleable]="true" [collapsed]="true">
-              <p>
-                {{ item.description }}
-              </p>
-            </p-panel>
-            <button class="btn btn-primary mt-4" [routerLink]="handlePath(item.link)"><i class="pi pi-pencil"></i> Comenzar</button>
-          </div>
-          <p-divider />
+        <div class="row dashboard-background" *ngFor="let item of methods; let first = first">
+          <p-panel [toggleable]="true" class="mb-3">
+            <ng-template pTemplate="header">
+                <div class="d-flex align-items-center gap-2">
+                    <p-avatar 
+                        [image]="item.img" 
+                        size="large" 
+                        shape="circle" />
+                    <span class="font-bold">
+                        {{item.title}}
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="footer">
+              <button class="btn btn-primary " [routerLink]="handlePath(item.link)"><i class="pi pi-pencil"></i> Comenzar</button>
+            </ng-template>
+            <p class="text-format m-0">
+              {{item.description}}
+            </p>
+        </p-panel>
         </div>
       </div>
     </ng-template>

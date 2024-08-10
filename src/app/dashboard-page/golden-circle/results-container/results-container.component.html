@@ -1,41 +1,43 @@
-<admin-navbar />
-<section class="container-fluid">
-  <p-breadcrumb class="max-w-full" [model]="items">
-    <ng-template pTemplate="item" let-item>
-      <ng-container *ngIf="item.route; else elseBlock">
-        <a [routerLink]="item.route" class="p-menuitem-link">
-          <span [ngClass]="[item.icon ? item.icon : '', 'text-color']"></span>
-          <span class="text-primary font-semibold">{{ item.label }}</span>
-        </a>
-      </ng-container>
-      <ng-template #elseBlock>
-        <a [href]="item.url">
-          <span class="text-color">{{ item.label }}</span>
-        </a>
+<div id="results" class="dashboard-background">
+  <admin-navbar />
+  <section class="container-fluid">
+    <p-breadcrumb [model]="items">
+      <ng-template pTemplate="item" let-item>
+        <ng-container *ngIf="item.route; else elseBlock">
+          <a [routerLink]="item.route" class="p-menuitem-link">
+            <span [ngClass]="[item.icon ? item.icon : '', 'text-color']"></span>
+            <span class="text-primary font-semibold">{{ item.label }}</span>
+          </a>
+        </ng-container>
+        <ng-template #elseBlock>
+          <a [href]="item.url">
+            <span class="text-color">{{ item.label }}</span>
+          </a>
+        </ng-template>
       </ng-template>
-    </ng-template>
-  </p-breadcrumb>
-  <div class="row mx-5 my-5">
-    <!-- Add *ngIf with reloadKey to force reload -->
-    <div *ngIf="reloadKey" class="col-sm-12 col-md-5">
-      <p-card>
-        <p-chart type="polarArea" [data]="data" [options]="options" responsive="true"></p-chart>
-      </p-card>
+    </p-breadcrumb>
+    <div class="row my-3">
+      <!-- Add *ngIf with reloadKey to force reload -->
+      <div *ngIf="reloadKey" class="mb-3 col-sm-12 col-md-5">
+        <p-card>
+          <p-chart type="polarArea" [data]="data" [options]="options"></p-chart>
+        </p-card>
+      </div>
+      <div *ngIf="!reloadKey" class="mb-3 col-sm-12 col-md-5">
+        <p-card>
+          <p-chart type="polarArea" [data]="data" [options]="options"></p-chart>
+        </p-card>
+      </div>
+      <div class="col-sm-12 col-md-7">
+          <p-accordion [activeIndex]="0">
+            <p-accordionTab [header]="tab.title" *ngFor="let tab of sections">
+              <p class="text-format">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem hic repellendus quos eveniet necessitatibus quisquam facilis, vel ex eligendi illo! In modi, quae vero doloribus mollitia laborum facilis ducimus nisi.
+              </p>
+            </p-accordionTab>
+          </p-accordion>
+      </div>
     </div>
-    <div *ngIf="!reloadKey" class="col-sm-12 col-md-5">
-      <p-card>
-        <p-chart type="polarArea" [data]="data" [options]="options" responsive="true"></p-chart>
-      </p-card>
-    </div>
-    <div class="col-sm-12 col-md-7">
-        <p-accordion [activeIndex]="0">
-          <p-accordionTab [header]="tab.title" *ngFor="let tab of sections">
-            <p class="m-0">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem hic repellendus quos eveniet necessitatibus quisquam facilis, vel ex eligendi illo! In modi, quae vero doloribus mollitia laborum facilis ducimus nisi.
-            </p>
-          </p-accordionTab>
-        </p-accordion>
-    </div>
-  </div>
-
-</section>
+  </section>
+  <admin-footer id="footer"/>
+</div>

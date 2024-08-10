@@ -2,11 +2,12 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { AdminNavbarComponent } from '../../admin-navbar/admin-navbar.component';
 import { ImportsModule } from '../../../imports';
 import { QuestionsService } from '../../../core/services/questions.service';
+import { FooterComponent } from '../../footer/footer.component';
 
 @Component({
   selector: 'radar-chart',
   standalone: true,
-  imports: [AdminNavbarComponent, ImportsModule],
+  imports: [AdminNavbarComponent, ImportsModule, FooterComponent],
   templateUrl: './radar-chart.component.html',
   styleUrl: './radar-chart.component.scss',
 })
@@ -22,7 +23,6 @@ export class RadarChartComponent implements OnInit {
   secondDataSetLabel: string = 'Resultados obtenidos';
   firstDataSetValues: any[] = [];
   secondDataSetValues: any[] = [];
-  tabs: any[] = [];
 
 
   constructor(private questionsService: QuestionsService) {}
