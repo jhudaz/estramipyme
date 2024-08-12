@@ -1,0 +1,13 @@
+.icon-base {
+  font-size: larger;
+}
+
+.icon-warning {
+  @extend .icon-base;
+  color: red;
+}
+
+.icon-alert {
+  @extend .icon-base;
+  color: orange;
+}

@@ -30,6 +30,9 @@ import { PanelModule } from 'primeng/panel';
 import { SliderModule } from 'primeng/slider';
 import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
+import { PasswordModule } from 'primeng/password';
+import { InputTextModule } from 'primeng/inputtext';
+
 
 @NgModule({
   imports: [
@@ -63,7 +66,10 @@ import { MenubarModule } from 'primeng/menubar';
     PanelModule,
     SliderModule,
     CalendarModule,
-    MenubarModule
+    MenubarModule,
+    PasswordModule,
+    InputTextModule
+
   ],
   exports: [
     AnimateModule,
@@ -96,7 +102,9 @@ import { MenubarModule } from 'primeng/menubar';
     PanelModule,
     SliderModule,
     CalendarModule,
-    MenubarModule
+    MenubarModule,
+    PasswordModule,
+    InputTextModule
   ],
 })
 export class ImportsModule {}
