@@ -1,17 +1,16 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { QuestionsService } from '../../../../core/services/questions.service';
-import { ImportsModule } from '../../../../imports';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit, HostListener, Input } from '@angular/core';
+import { QuestionsService } from 'src/app/core/services/questions.service';
+import { ImportsModule } from 'src/app/imports';
 
 @Component({
-  selector: 'form-panel',
+  selector: 'custom-form',
   standalone: true,
-  imports: [ImportsModule, FormsModule],
-  templateUrl: './form-panel.component.html',
-  styleUrl: './form-panel.component.scss'
+  imports: [ImportsModule],
+  templateUrl: './custom-form.component.html',
+  styleUrl: './custom-form.component.scss'
 })
-export class FormPanelComponent implements OnInit {
-  val: number = 0;
+export class CustomFormComponent implements OnInit {
+  @Input() methodologyTitle: string = "";
   sections: any = [];
   section: any = {};
   sectionId:number = 1;
@@ -22,6 +21,12 @@ export class FormPanelComponent implements OnInit {
   nextSignal:boolean = false;
   index:number = 0;
   screenWidth: number = 0;
+  routes:any ={
+    goldenCircle: "/circulo-dorado-resultados",
+    radar: "/radar-resultados"
+  };
+  route:string = "";
+  
 
   constructor(private questionsService: QuestionsService) {
     this.screenWidth = window.innerWidth;
@@ -33,14 +38,15 @@ export class FormPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sections = this.questionsService.getAllQuestions("goldenCircle");
+    this.sections = this.questionsService.getAllQuestions(this.methodologyTitle);
     this.section = this.sections[this.index];
     this.title = this.section.title;
     this.sectionAmount = this.sections.length;
     console.log(this.index)
     this.prevSignal = true;
+    this.route = this.routes[this.methodologyTitle];
 
-    console.log(this.sections);
+    
   }
 
   handleSection(direction:string) {
@@ -49,7 +55,7 @@ export class FormPanelComponent implements OnInit {
     } else {
       this.index = this.index + 1;
     }
-    this.section = this.questionsService.getAllQuestions("goldenCircle")[this.index];
+    this.section = this.questionsService.getAllQuestions(this.methodologyTitle)[this.index];
     this.checkIndex();
   }
 
@@ -57,5 +63,4 @@ export class FormPanelComponent implements OnInit {
     this.index === 0 ?                      this.prevSignal = true : this.prevSignal = false;
     this.index === this.sectionAmount - 1 ? this.nextSignal = true : this.nextSignal = false;
   }
-
 }

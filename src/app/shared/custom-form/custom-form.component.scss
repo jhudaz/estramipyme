@@ -1,0 +1,13 @@
+.btn {
+  width: 10em;
+}
+.slider {
+  width: 35rem;
+}
+:host ::ng-deep .p-slider { 
+    height: 15px;
+} 
+  
+:host ::ng-deep .p-slider .p-slider-range{ 
+    background: #007ad9; 
+}
