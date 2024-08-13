@@ -44,6 +44,7 @@ export class UserInfoComponent implements OnInit {
       {
         label: 'Reportes',
         icon: 'pi pi-chart-bar',
+        badge: '9',
         items: [
           {
             label: 'Empresas',

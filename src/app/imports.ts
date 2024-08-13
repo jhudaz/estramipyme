@@ -2,7 +2,6 @@ import { StepperModule } from 'primeng/stepper';
 import { StepsModule } from 'primeng/steps';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { ToggleButtonModule } from 'primeng/togglebutton';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { RouterOutlet } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -10,7 +9,6 @@ import { AnimateModule } from 'primeng/animate';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ScrollerModule } from 'primeng/scroller';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
-import { KnobModule } from 'primeng/knob';
 import { CommonModule } from '@angular/common';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -28,7 +26,6 @@ import { BadgeModule } from 'primeng/badge';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { PanelModule } from 'primeng/panel';
 import { SliderModule } from 'primeng/slider';
-import { CalendarModule } from 'primeng/calendar';
 import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
@@ -41,13 +38,11 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     StepperModule,
     ToastModule,
-    ToggleButtonModule,
     RouterOutlet,
     StepsModule,
     ScrollTopModule,
     ScrollerModule,
     ScrollPanelModule,
-    KnobModule,
     CommonModule,
     FieldsetModule,
     InputNumberModule,
@@ -65,7 +60,6 @@ import { InputTextModule } from 'primeng/inputtext';
     PanelMenuModule,
     PanelModule,
     SliderModule,
-    CalendarModule,
     MenubarModule,
     PasswordModule,
     InputTextModule
@@ -77,13 +71,11 @@ import { InputTextModule } from 'primeng/inputtext';
     ButtonModule,
     StepperModule,
     ToastModule,
-    ToggleButtonModule,
     RouterOutlet,
     StepsModule,
     ScrollTopModule,
     ScrollerModule,
     ScrollPanelModule,
-    KnobModule,
     CommonModule,
     FieldsetModule,
     InputNumberModule,
@@ -101,7 +93,6 @@ import { InputTextModule } from 'primeng/inputtext';
     PanelMenuModule,
     PanelModule,
     SliderModule,
-    CalendarModule,
     MenubarModule,
     PasswordModule,
     InputTextModule

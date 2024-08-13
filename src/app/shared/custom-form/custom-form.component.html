@@ -2,10 +2,10 @@
   <div class="row">
     <div class="col-sm-3 col-md-3 d-flex" id="desktop">
       @if(screenWidth >= 1245){
-        <p-stepper [activeStep]="index" orientation="vertical" [linear]="true">
-          <p-stepperPanel *ngFor="let section of sections" [header]="section.title"></p-stepperPanel>
-        </p-stepper>
-        <p-divider layout="vertical" />
+      <p-stepper [activeStep]="index" orientation="vertical" [linear]="true">
+        <p-stepperPanel *ngFor="let section of sections" [header]="section.title"></p-stepperPanel>
+      </p-stepper>
+      <p-divider layout="vertical" />
       }
     </div>
     <div class="col-sm-9 col-md-9">
@@ -15,19 +15,21 @@
           <div class="row my-3">
             <label class="text-format" [for]="question.id">{{question.question}}</label>
             <div class="slider my-5">
-              <p-slider/>
+              <p-slider />
             </div>
           </div>
         </ng-container>
         <div class="row d-flex flex-row my-3">
-          <button type="button" [disabled]="prevSignal" (click)="handleSection('back')" class="btn btn-primary btn-sm mx-2">Atras</button>
-          <button type="button" [disabled]="nextSignal" (click)="handleSection('next')" class="btn btn-primary btn-sm mx-2">Siguiente</button>
+          <button type="button" [disabled]="prevSignal" (click)="handleSection('back')"
+            class="btn btn-primary btn-sm mx-2">Atras</button>
+          <button type="button" [disabled]="nextSignal" (click)="handleSection('next')"
+            class="btn btn-primary btn-sm mx-2">Siguiente</button>
           @if(nextSignal){
-            <a routerLink="/radar-resultados" class="btn btn-primary btn-sm mx-2">Resultados</a>
+          <a [routerLink]="route" class="btn btn-primary btn-sm mx-2">Resultados</a>
           }
         </div>
       </form>
     </div>
   </div>
-  
+
 </div>
