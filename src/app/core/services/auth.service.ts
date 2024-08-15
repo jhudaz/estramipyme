@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,22 @@ export class AuthService {
     } else {
       return false;
     }
+  }
+
+
+  cleanFormValues(form: FormGroup) {
+    form.valueChanges.subscribe(() => {
+      // Trim the username
+      const trimmedUsername: any = form.get('username')?.value?.trim();
+      if (form.get('username')?.value !== trimmedUsername) {
+        form.get('username')?.setValue(trimmedUsername, { emitEvent: false });
+      }
+      // Trim the password
+      const trimmedPassword: any = form.get('password')?.value?.trim();
+      if (form.get('password')?.value !== trimmedPassword) {
+        form.get('password')?.setValue(trimmedPassword, { emitEvent: false });
+      }
+    });
   }
 
 }
