@@ -1,19 +1,20 @@
 import { Component, OnInit, HostListener, Input } from '@angular/core';
 import { QuestionsService } from 'src/app/core/services/questions.service';
 import { ImportsModule } from 'src/app/imports';
+import { SliderModule } from 'primeng/slider';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'custom-form',
   standalone: true,
-  imports: [ImportsModule],
+  imports: [ImportsModule, SliderModule, FormsModule ],
   templateUrl: './custom-form.component.html',
   styleUrl: './custom-form.component.scss'
 })
 export class CustomFormComponent implements OnInit {
   @Input() methodologyTitle: string = "";
   sections: any = [];
-  section: any = {};
-  sectionId:number = 1;
+  currentSection: any = {};
   questions: any = {};
   title:string ="";
   sectionAmount: number = 0;
@@ -26,6 +27,7 @@ export class CustomFormComponent implements OnInit {
     radar: "/radar-resultados"
   };
   route:string = "";
+  answers: { [key: string]: number } = {};
   
 
   constructor(private questionsService: QuestionsService) {
@@ -38,16 +40,23 @@ export class CustomFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sections = this.questionsService.getAllQuestions(this.methodologyTitle);
-    this.section = this.sections[this.index];
-    this.title = this.section.title;
+    this.sections = this.questionsService.getAllQuestions(this.methodologyTitle)
+    this.currentSection = this.sections[this.index];
+    this.title = this.currentSection.title;
     this.sectionAmount = this.sections.length;
-    console.log(this.index)
     this.prevSignal = true;
     this.route = this.routes[this.methodologyTitle];
-
+    this.sections.forEach((section: any) => {
+      section.questions.forEach((question: any) => {
+        this.answers[question.id] = 0;
+      });
+    });
     
   }
+  onSliderChange(questionId: string, value:any) {
+    this.answers[questionId] = value;
+  }
+
 
   handleSection(direction:string) {
     if(direction === "back"){
@@ -55,7 +64,7 @@ export class CustomFormComponent implements OnInit {
     } else {
       this.index = this.index + 1;
     }
-    this.section = this.questionsService.getAllQuestions(this.methodologyTitle)[this.index];
+    this.currentSection = this.questionsService.getAllQuestions(this.methodologyTitle)[this.index];
     this.checkIndex();
   }
 
