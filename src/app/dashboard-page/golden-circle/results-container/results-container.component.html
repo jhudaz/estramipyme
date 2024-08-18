@@ -29,15 +29,30 @@
         </p-card>
       </div>
       <div class="col-sm-12 col-md-7">
-          <p-accordion [activeIndex]="0">
-            <p-accordionTab [header]="tab.title" *ngFor="let tab of sections">
-              <p class="text-format">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem hic repellendus quos eveniet necessitatibus quisquam facilis, vel ex eligendi illo! In modi, quae vero doloribus mollitia laborum facilis ducimus nisi.
-              </p>
-            </p-accordionTab>
-          </p-accordion>
+        <p-accordion [activeIndex]="0">
+          <p-accordionTab [header]="section.title" *ngFor="let section of values" styleClass="text-decoration: none;">
+            <p class="text-format">
+              <strong>Percepcion: </strong>
+
+              {{section.perception}}
+              <i [class]="'pi ' + section.icon"></i>
+            </p>
+            <p>
+              <strong>Valor: </strong>
+              <p-badge [value]="section.value" [severity]="section.severity" />
+            </p>
+          </p-accordionTab>
+        </p-accordion>
+        <p-divider/>
+        <p-panel header="Recomendacion">
+          <p>
+            Establece Objetivos Claros: Define metas específicas y alcanzables para abordar las áreas problemáticas. Por
+            ejemplo, si la comunicación interna es un problema, un objetivo podría ser mejorar la frecuencia y claridad
+            de las actualizaciones.
+          </p>
+        </p-panel>
       </div>
     </div>
   </section>
-  <admin-footer id="footer"/>
+  <admin-footer id="footer" />
 </div>

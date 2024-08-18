@@ -3,6 +3,7 @@ import { AdminNavbarComponent } from '../../admin-navbar/admin-navbar.component'
 import { ImportsModule } from '../../../imports';
 import { QuestionsService } from '../../../core/services/questions.service';
 import { FooterComponent } from '../../footer/footer.component';
+import { Title } from 'chart.js';
 
 @Component({
   selector: 'results-container',
@@ -20,6 +21,35 @@ export class ResultsContainerComponent {
   whyColor: string = '#0d3b66';
   howColor: string = 'orange';
   whatColor: string = '#f4d35e';
+  whyValue: number = Math.floor(Math.random() * (100 - 67 + 1)) + 67;
+  howValue: number = Math.floor(Math.random() * (66 - 34 + 1)) + 34;
+  whatValue: number = Math.floor(Math.random() * (33 - 1 + 1)) + 1;
+  values: any = [
+    {
+      title: "¿Por que?",
+      perception: 'Alta',
+      severity: 'success',
+      icon: 'pi pi-check-circle',
+      value: this.whyValue
+    },
+    {
+      title: "¿Como?",
+      perception: 'Media',
+      severity: 'primary',
+      icon: 'pi pi-exclamation-triangle',
+      value: this.howValue
+
+    },
+    {
+      title: "¿Que?",
+      perception: 'Baja',
+      severity: 'warning',
+      icon: 'pi pi-times-circle',
+      value: this.whatValue
+
+    }
+  ];
+
 
   constructor(private questionsService: QuestionsService) {}
 
@@ -40,7 +70,7 @@ export class ResultsContainerComponent {
     this.data = {
       datasets: [
         {
-          data: [24,16,14],
+          data: [this.whyValue, this.howValue, this.whatValue],
           backgroundColor: [
             this.whyColor, 
             this.howColor, 
