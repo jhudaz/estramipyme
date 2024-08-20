@@ -18,9 +18,9 @@ export class ResultsContainerComponent {
   reloadKey = true;
   sections: any[] = [];
   items: any[] = [];
-  whyColor: string = '#0d3b66';
-  howColor: string = 'orange';
-  whatColor: string = '#f4d35e';
+  whyColor: string = 'green';
+  howColor: string = 'blue';
+  whatColor: string = 'orange';
   whyValue: number = Math.floor(Math.random() * (100 - 67 + 1)) + 67;
   howValue: number = Math.floor(Math.random() * (66 - 34 + 1)) + 34;
   whatValue: number = Math.floor(Math.random() * (33 - 1 + 1)) + 1;
@@ -29,14 +29,12 @@ export class ResultsContainerComponent {
       title: "¿Por que?",
       perception: 'Alta',
       severity: 'success',
-      icon: 'pi pi-check-circle',
       value: this.whyValue
     },
     {
       title: "¿Como?",
       perception: 'Media',
       severity: 'primary',
-      icon: 'pi pi-exclamation-triangle',
       value: this.howValue
 
     },
@@ -44,7 +42,6 @@ export class ResultsContainerComponent {
       title: "¿Que?",
       perception: 'Baja',
       severity: 'warning',
-      icon: 'pi pi-times-circle',
       value: this.whatValue
 
     }
