@@ -23,6 +23,24 @@ export class RadarChartComponent implements OnInit {
   secondDataSetLabel: string = 'Resultados obtenidos';
   firstDataSetValues: any[] = [];
   secondDataSetValues: any[] = [];
+  values: any[] = [
+    {
+      perception: "Buena",
+      value: Math.floor(Math.random() * (100 - 67 + 1)) + 67,
+      severity: "success"
+    },
+    {
+      perception: "Regular",
+      value: Math.floor(Math.random() * (66 - 34 + 1)) + 34,
+      severity: "primary"
+    },
+    {
+      perception: "Mala",
+      value: Math.floor(Math.random() * (33 - 1 + 1)) + 1,
+      severity: "warning"
+    }
+
+  ]
 
 
   constructor(private questionsService: QuestionsService) {}
@@ -92,6 +110,11 @@ export class RadarChartComponent implements OnInit {
       this.firstDataSetValues.push(Math.random() * 100);
       this.secondDataSetValues.push(Math.random() * 100);
     });
+  }
+  chooseValue() {
+    let random = Math.floor(Math.random() * this.values.length);
+
+    return this.values[random];
   }
   
 }
